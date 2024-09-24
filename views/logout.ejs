@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+
+        @keyframes gradient-animation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .animate-gradient {
+            background: linear-gradient(270deg, #ff7f50, #1e90ff, #32cd32, #ff69b4);
+            background-size: 400% 400%;
+            animation: gradient-animation 10s ease infinite;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center h-screen animate-gradient">
+
+    <div class="bg-white shadow-md rounded-lg p-8">
+        <h1 class="text-2xl font-semibold mb-4">Logout</h1>
+        <p class="mb-6">Are you sure you want to log out?</p>
+        <form action="/logout" method="POST">
+            <button type="submit" class="w-full bg-blue-500 text-white font-semibold py-2 rounded hover:bg-blue-600 transition duration-200">
+                Logout
+            </button>
+        </form>
+    </div>
+
+</body>
+</html>

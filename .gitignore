@@ -1,0 +1,43 @@
+# Node.js dependencies
+node_modules/
+
+# Build output
+/build/
+/dist/
+
+# Environment variables
+.env
+
+# Logs
+*.log
+logs
+*.tgz
+
+# Temporary files
+*.tmp
+*.temp
+*~
+
+# IDE and Editor configurations
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# React build artifacts
+/build/
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# Miscellaneous
+.DS_Store
+Thumbs.db
+
+# npm package locks
+package-lock.json
+yarn.lock
+
+# TypeScript files (if using TypeScript)
+*.ts
+*.tsx

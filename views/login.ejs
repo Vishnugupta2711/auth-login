@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+
+        @keyframes gradient-animation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .animate-gradient {
+            background-size: 200% 200%;
+            animation: gradient-animation 8s ease infinite;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient flex items-center justify-center h-screen">
+
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h2 class="text-2xl font-bold mb-6 text-center">Login</h2>
+
+        <!-- Example Error Message -->
+        <p id="error-message" class="text-red-500 mb-4 text-center hidden">Error: Invalid email or password.</p>
+
+        <form action="/login" method="POST" onsubmit="return validateLogin()">
+            <div class="mb-4">
+                <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
+                <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500" required>
+            </div>
+            <div class="mb-6">
+                <label for="password" class="block text-gray-700 font-semibold mb-2">Password</label>
+                <input type="password" id="password" name="password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500" required>
+            </div>
+            <button type="submit" class="w-full bg-indigo-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-indigo-600 transition duration-300">Login</button>
+        </form>
+        <p class="mt-4 text-center text-gray-600">Don't have an account? <a href="/signup" class="text-indigo-500 hover:underline">Sign up</a></p>
+    </div>
+
+    <!-- Popup Modal -->
+    <div id="popupModal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+            <h2 class="text-xl font-bold mb-4 text-center">Notice</h2>
+            <p class="text-gray-700 mb-4 text-center">Invalid email or password. Please try again.</p>
+            <button onclick="closePopup()" class="w-full bg-indigo-500 text-white font-semibold py-2 rounded-lg">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function validateLogin() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (!email || !password) {
+                document.getElementById('popupModal').classList.remove('hidden');
+                return false; // Prevent form submission
+            }
+
+            return true; // Allow form submission
+        }
+
+        function closePopup() {
+            document.getElementById('popupModal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>

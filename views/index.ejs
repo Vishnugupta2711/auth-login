@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+
+        @keyframes gradient-animation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .animate-gradient {
+            background-size: 200% 200%;
+            animation: gradient-animation 8s ease infinite;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-teal-400 via-blue-500 to-purple-500 animate-gradient flex items-center justify-center h-screen">
+
+    <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+        <h1 class="text-2xl font-bold mb-4 text-center">Welcome to My Page</h1>
+        <p class="text-gray-600 text-center mb-6">For login, signup first</p>
+        <a href="/signup" method="get">
+            <button class="w-full bg-indigo-500 text-white font-semibold py-2 rounded-lg hover:bg-indigo-600">
+                Register
+            </button>
+        </a>
+    </div>
+
+</body>
+</html>
